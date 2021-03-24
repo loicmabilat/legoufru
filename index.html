@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="panier.css">
+        <title>LegouFru</title>
+    </head>
+    <body>
+        <header><h1>panier de légume ou de fruit</h1></header>
+    
+<table>
+    <tr class="monpanier">
+        <td><div class="panier">grandpanier (N°1)</div> </td>
+        <td><div class="prixUnite">12</div></td>
+        <td><button class="retrait">-</button></td>
+        <td><div class="qtt">0</div></td>
+        <td><button class="ajout">+</button></td>
+        <td>&nbsp</td>
+        <td><div class="prix">0</div></td>
+        <td>€</td>
+    </tr>
+
+    <tr class="monpanier">
+        <td><div class="panier">petit panier (N°1)</div> </td>
+        <td><div class="prixUnite">8</div></td>
+        <td><button class="retrait">-</button></td>
+        <td><div class="qtt">0</div></td>
+        <td><button class="ajout">+</button></td>
+        <td></npsb></td>
+        <td><div class="prix">0</div></td>
+        <td>€</td>
+    </tr>
+    
+    <tr class="monpanier">
+        <td><div class="panier">grand panier (N°2)</div> </td>
+        <td><div class="prixUnite">11</div></td>
+        <td><button class="retrait">-</button></td>
+        <td><div class="qtt">0</div></td>
+        <td><button class="ajout">+</button></td>
+        <td>&nbsp</td>
+        <td><div class="prix">0</div></td>
+        <td>€</td>
+    </tr>
+    <tr class="monpanier">
+        <td><div class="panier">petit panier (N°2)</div> </td>
+        <td><div class="prixUnite">7</div></td>
+        <td><button class="retrait">-</button></td>
+        <td><div class="qtt">0</div></td>
+        <td><button class="ajout">+</button></td>
+        <td></npsb></td>
+        <td><div class="prix">0</div></td>
+        <td>€</td>
+    </tr>
+    
+    <tr class="monpanier">
+        <td><div class="panier">grand panier de fuit (N°3)..</div> </td>
+        <td><div class="prixUnite">12</div></td>
+        <td><button class="retrait">-</button></td>
+        <td><div class="qtt">0</div></td>
+        <td><button class="ajout">+</button></td>
+        <td></npsb></td>
+        <td><div class="prix">0</div></td>
+        <td>€</td>
+    </tr>
+    <tr class="monpanier">
+        <td><div class="panier">petit panier de fruit (N°3)..</div> </td>
+        <td><div class="prixUnite">8</div></td>
+        <td><button class="retrait">-</button></td>
+        <td><div class="qtt">0</div></td>
+        <td><button class="ajout">+</button></td>
+        <td></npsb></td>
+        <td><div class="prix">0</div></td>
+        <td>€</td>
+    </tr>
+    
+    
+
+    <tr>
+        <td>
+        <div class ="total">0</div>
+        </td>
+    </tr>
+    </table>
+<div class="summarize"></div>
+<div class="commande"> 
+<button>payer la commande par paypal ou cb ==></button>
+
+<div id="smart-button-container">
+        <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+        shape: 'rect',
+        color: 'gold',
+        layout: 'vertical',
+        label: 'paypal',
+        },
+
+        createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+        });
+        },
+
+        onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+        });
+        },
+
+        onError: function(err) {
+        console.log(err);
+        }
+    }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+</script>
+</div>
+    
+    </body>
+    <script src="panier.js" ></script>
+    </html>
