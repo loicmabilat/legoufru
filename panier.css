@@ -1,11 +1,32 @@
+table
+{
+  justify-content : stretch;
+  width : 100%;
+}
+@font-face
+{
+  font-family : 'dancing';
+  src : url('fontdancing/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+
+h1
+{display : flex;
+  position : relative;
+  left :12%;
+  font-family : 'dancing';
+  font-style : bol;
+}
 
 .commande{
   visibility :hidden;
 }
+
 .paye.commande{
   visibility : visible;
 }
+
 .summarize{
   border : 2px solid black;
   height :30px;
+  box-shadow: 2px -2px aqua;
 }
